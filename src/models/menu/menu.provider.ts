@@ -1,10 +1,10 @@
 import { Connection } from "mongoose";
-import { MenuSchema } from "./menu.schema";
+import { menuSchema } from "./menu.schema";
 
 export const menuProviders = [
     {
         provide: 'MENU_MODEL',
-        useFactory: (connection: Connection) => connection.model('Menu', MenuSchema),
+        useFactory: (connection: Connection) => connection.model('Menu', menuSchema),
         inject: ['DATABASE_CONNECTION'],
     },
 ];

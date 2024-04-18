@@ -1,23 +1,17 @@
-import * as mongoose from "mongoose"
+import * as mongoose from "mongoose" 
+import {itemSchema} from "../item/item.schema";
+ 
+ 
+ 
 
-export interface Menu {
-    ownerId: String
-    menutitle: String
-    items : Item[]
-}
-
-export interface Item {
-    id: Number
-    seq: Number
-    itemTitle: String
-    itemDescription: String
-    photoUrl: String
-    price: String
-    disabled: Boolean
-}
-
-export const MenuSchema = new mongoose.Schema({
-    ownerId: String,
-    menutitle: String,
-    items: []
+export const menuSchema = new mongoose.Schema({
+    ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    menutitle: {type: String, required: true},
+    items: {type: [itemSchema]}
 })
+
+export type Menu = mongoose.InferSchemaType<typeof menuSchema>;
+
+
+//export default mongoose.model<Menu>("Menu", menuSchema)    
+ 

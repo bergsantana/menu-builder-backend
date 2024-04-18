@@ -11,10 +11,10 @@ export class UserService {
 
     async create(user: UserInterface){
         const createdUser = new this.userModel(user)
-        return createdUser.save()
+        return await createdUser.save()
     }
 
     async findAll(){
-        return this.userModel.find().exec()
+        return await this.userModel.find().exec()
     }
 }
