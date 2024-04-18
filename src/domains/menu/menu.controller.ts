@@ -24,8 +24,8 @@ export class MenuController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMenuDto: UpdateMenuDto) {
-    return this.menuService.update(+id, updateMenuDto);
+  update(@Param('id') id: string, @Body() updateMenu: Menu) {
+    return this.menuService.update(id, updateMenu);
   }
 
   @Delete(':id')

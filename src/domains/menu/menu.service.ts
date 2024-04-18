@@ -25,8 +25,12 @@ export class MenuService {
     return await this.menuModel.findById(id).exec();
   }
 
-  update(id: number, updateMenuDto: UpdateMenuDto) {
-    return `This action updates a #${id} menu`;
+  async update(id: string, updateMenu: Menu) {
+    const updatedMenuu = await  this.menuModel.updateOne(
+    {_id: id}, 
+    {menutitle: updateMenu.menutitle, items: updateMenu.items}
+    )
+    return updatedMenuu
   }
 
   remove(id: number) {
