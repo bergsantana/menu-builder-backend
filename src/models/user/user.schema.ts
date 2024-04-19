@@ -9,9 +9,15 @@ export interface UserInterface {
 }
 
 export const UserSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    birthDate: String,
-    email: String,
-    password: String,
+    firstName:  {type: String, required: true},
+    lastName:  {type: String, required: true},
+    birthDate:  {type: String, required: true},
+    email:  {type: String, required: true, unique: true},
+    password:  {type: String, required: true},
 })
+
+type User = mongoose.InferSchemaType<typeof UserSchema>;
+
+
+export default mongoose.model<User>("User", UserSchema)    
+ 

@@ -21,7 +21,7 @@ export class MenuService {
     }
   }
 
-  async findAll(id: string) {
+  async findAllByUser(id: string) {
 
     return await this.menuModel.find({ownerId: id}).exec();
   }
