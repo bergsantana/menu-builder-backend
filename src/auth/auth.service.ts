@@ -18,7 +18,6 @@ export class AuthService {
   async login(email: string, password: string)   : Promise<{access_token: string}> {
     const user = await this.userService.findOne(email)
     const isMatch = await bcrypt.compare(password, user.password)
-    console.log(user)
     if(isMatch){
         return {
           access_token: await this.jwtService.signAsync({
