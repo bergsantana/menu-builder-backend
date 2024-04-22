@@ -23,15 +23,14 @@ export class UserService {
         }
 
     }
+ 
 
-    async findAll(){
-        return await this.userModel.find().exec()
-    }
 
     async findOne(email: string){
         const found = await this.userModel.findOne({email: email}).exec()
         return found
     }
 
+  
  
 }
