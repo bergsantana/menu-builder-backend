@@ -28,6 +28,11 @@ export class MenuController {
     return this.menuService.findAllByUser(id);
   }
 
+  @Get('/:id')
+  findone(@Param('id') id: string) {
+    return this.menuService.findOne(id);
+  }
+
   @UseGuards(AuthGuard)
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateMenu: Menu) {
