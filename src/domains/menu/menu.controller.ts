@@ -16,6 +16,12 @@ export class MenuController {
     return this.menuService.create(menu);
   }
 
+
+  @Get('/:id')
+  findOne(@Param('id') id : string){
+    return this.menuService.findOne(id)
+  }
+
   @UseGuards(AuthGuard)
   @Get('findallbyuser/:id')
   findAllByUser(@Param('id') id: string) {
