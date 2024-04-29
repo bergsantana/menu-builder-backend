@@ -7,7 +7,7 @@ export interface UserInterface {
     email: string,
     password: string,
     phoneNum: string,
-    paymentKey: string
+     
 }
 
 export const UserSchema = new mongoose.Schema({
@@ -17,7 +17,7 @@ export const UserSchema = new mongoose.Schema({
     email:  {type: String, required: true, unique: true},
     password:  {type: String, required: true},
     phoneNum: { type: String, required: true, unique : true},
-    paymentKey: { type: String, required: true, unique: true}
+     
 })
 
 type User = mongoose.InferSchemaType<typeof UserSchema>;
